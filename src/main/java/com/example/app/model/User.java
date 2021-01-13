@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
 import java.util.Date;
 
 @Entity
@@ -11,27 +14,36 @@ import java.util.Date;
 public class User {
 	@Id
 	@Column(name = "id")
+	@NotEmpty
 	private long id;
 
 	@Column(name = "msisdn")
+	@NotEmpty
 	private String msisdn;
 	
 	@Column(name = "sim_type")
+	@NotEmpty
 	private String sim_type;
 	
 	@Column(name = "name")
+	@NotEmpty
 	private String name;
 	
 	@Column(name = "date_of_birth")
+	@NotEmpty
 	private Date date_of_birth;
 
 	@Column(name = "gender")
+	@NotEmpty
 	private String gender;
 
 	@Column(name = "address")
+	@NotEmpty
+	@Min(20)
 	private String address;
 
 	@Column(name = "id_number")
+	@NotEmpty
 	private String id_number;
 
 	public User() {
